@@ -1,7 +1,12 @@
 import '../styles/style_Login.css'
 import iconoLoginCurveado from '../assets/icono_curveado_login.png'
 import { useEffect } from 'react';
-import full_logo_HUG from '../assets/FullLogo_HUG.png'
+import full_logo_HUG from '../assets/FullLogo_HUG_with_letters.png'
+
+import logo_abajo from '../assets/logo_HUG_abajo.png'
+
+import logo_arriba from '../assets/logo_HUG_arriba.png'
+
 
 
 import { changeToSignOrLog } from '../scripts/ViewLogin/changeToSignOrLog';
@@ -98,7 +103,10 @@ function ViewLogin() {
                       </div>
                       <div className='myFirstViewRegister-item myDNone'>
                         <div className='myEmailVerified'>
-                               <input type='text' className='myInputValidated' placeholder='Ingresa Código de Verificación...'></input>
+                               <input type='text' className='myInputValidated toBottom' placeholder='XXXX - XXXX'></input>
+                               <button className='myBtStartSession toBottom' id='btValidateCode'>Validar</button>
+                               <img src={logo_arriba} className='myMiniSpinner arriba' id='myUpLogo'></img>
+                               <img src={logo_abajo} className='myMiniSpinner abajo' id='myDownLogo'></img>
                         </div>
                       </div>
                     </div>

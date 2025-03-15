@@ -53,6 +53,8 @@ const imgLeft = document.getElementById('left')
  const firstView = document.getElementById('myFirstViewRegister')
 const myInfo_items = document.querySelectorAll('#myInfoSign .myInfo-item')
 
+
+
   btRegister.addEventListener('click', ()=>{
     
     console.log(myInfo_items)
@@ -61,9 +63,32 @@ const myInfo_items = document.querySelectorAll('#myInfoSign .myInfo-item')
      })
      firstView.style.removeProperty('display')
      firstView.style.display ='grid'
+     myInfoSign.style.height='63%'
 
 
   })
+
+  const myUpLogo = document.getElementById('myUpLogo')
+  const myDownLogo = document.getElementById('myDownLogo')
+ const btValidateCode = document.getElementById('btValidateCode')
+
+  btValidateCode.addEventListener('click', ()=>{
+    myUpLogo.style.removeProperty('visibility')
+    myDownLogo.style.removeProperty('visibility')
+    myUpLogo.style.visibility = 'visible'
+     myDownLogo.style.visibility = 'visible'
+     myDownLogo.style.animation= 'down 1s infinite'
+     myUpLogo.style.animation = 'Up 1s infinite'
+
+     setTimeout(fnHiddenLogo, 3000)
+  })
+
+  function fnHiddenLogo(){
+     myUpLogo.style.visibility = 'hidden'
+     myDownLogo.style.visibility = 'hidden'
+     myDownLogo.style.removeProperty('animation')
+     myUpLogo.style.removeProperty('animation')
+  }
 
 
 }
