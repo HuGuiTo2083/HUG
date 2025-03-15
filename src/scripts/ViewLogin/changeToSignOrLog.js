@@ -63,7 +63,7 @@ const myInfo_items = document.querySelectorAll('#myInfoSign .myInfo-item')
      })
      firstView.style.removeProperty('display')
      firstView.style.display ='grid'
-     myInfoSign.style.height='63%'
+     myInfoSign.style.height='80%'
 
 
   })
