@@ -177,7 +177,7 @@ button{
 
 .myInfo{
     width: 85%;
-    height: 80%;
+    height: 60%;
     border-radius: 10px;
     border:  solid 5px white;
     box-shadow: 30px 20px white;
@@ -187,6 +187,7 @@ button{
     justify-content: center;
     grid-template-columns:  1fr;
     grid-template-rows: 0.7fr 3fr;
+    gap: ;
     padding: 20px;
     box-sizing: border-box;
 }
@@ -194,6 +195,7 @@ button{
 .myInfo-item{
     width: 100%;
     height: 100%;
+    gap: 30px;
 }
 
 .myInfo-item:nth-child(1){
@@ -202,14 +204,14 @@ button{
     justify-content: center;
     font-weight: 800;
     color: white;
-    font-size: clamp(20px, 4vw, 32px);
+    font-size: clamp(20px, 6vw, 55px);
     /* background-color: aqua; */
 }
 
 .myInfo-item:nth-child(2){
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 2fr;
+    grid-template-rows: 1fr 1fr 1fr 2fr;
     padding-top: 50px;
     box-sizing: border-box;
     /* background-color: red; */
@@ -217,22 +219,49 @@ button{
 .myInfo-sub-item{
     width: 100%;
     height: 100%;
-    display: flex;
+    display: grid;
+    font-size: 30px;
     justify-content: center;
     align-items: center;
     gap: 30px;
+    font-size: clamp(10px, 2.5vw, 30px) ;
 }
 
-.myInfo-sub-item:nth-child(1){
-    font-size: clamp(10px, 2.5vw, 20px) ;
+.myInfo-sub-item:nth-child(1), .myInfo-sub-item:nth-child(2){
      font-weight: 800;
+     grid-template-columns: 0.5fr 1fr;
+     grid-template-rows: 1fr;
      color: white;
+     align-items: center;
+     justify-content: center;
     /* background-color: aqua; */
 }
 
+.myMini-sub:nth-child(1){
+    width: 100%;
+    height: 100%;
+ text-align: left;
+ /* background-color: #a87136; */
+ display: flex;
+ align-items: center;
+ padding-left: 20px;
+ box-sizing: border-box;
+}
+
+.myMini-sub:nth-child(2){
+    width: 100%;
+    height: 100%;
+ text-align: left;
+ /* background-color: #a87136; */
+ display: flex;
+ align-items: center;
+ box-sizing: border-box;
+}
+
+
 .myInput{
-    width: 200px;
-    height: 40px;
+    width: 90%;
+    height: 50px;
     border-radius: 10px;
     border:none;
     padding-left: 20px;
@@ -245,14 +274,29 @@ input:focus{
  outline: none;
 }
 
-.myInfo-sub-item:nth-child(2){
-    font-size: clamp(10px, 2.5vw, 20px) ;
+.myInfo-sub-item:nth-child(3){
+    grid-template-columns: 1fr 1fr;
+     grid-template-rows: 1fr;
+     color: white;
+     align-items: center;
+     justify-content: center;
      font-weight: 800;
      color: white;
+     
     /* background-color: red; */
 }
 
-.myInfo-sub-item:nth-child(3){
+.myInfo-sub-item:nth-child(3) .myMini-sub:nth-child(1){
+    /* background-color: #cc3535; */
+    justify-content: end;
+}
+
+.myInfo-sub-item:nth-child(3) .myMini-sub:nth-child(2){
+    /* background-color: #cc3535; */
+    justify-content: start;
+}
+
+.myInfo-sub-item:nth-child(4){
     display: flex;
     align-items: start;
     box-sizing: border-box;
@@ -264,13 +308,18 @@ input:focus{
     font-size: clamp(10px, 2.5vw, 20px) ;
     font-weight: 800;
     color: white;
-    height: 50px;
-    width:  150px;
+    height: 70px;
+    width:  230px;
     background-color: #a87136;
     border-radius: 1.1rem;
     border: 3px solid white;
     box-shadow: 0px 0px 20px;
     transition: 0.5s;
+}
+
+.registerContainer .myMini-sub{
+    grid-column: 2 span;
+    justify-content: center !important;
 }
 
 .btRegister{
@@ -334,6 +383,67 @@ input:focus{
     border: 5px rgba(255, 255, 255, 0.527) dashed;
     flex-direction: column;
     gap: 30px;
+    position: relative;
+    
+}
+
+.miniLabel{
+    font-size: 15px;
+    position: absolute;
+    top: 210px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #cc3535;
+    display: none;
+}
+
+/* **************************************media screen definitiva para pantalla de laptops huhm **************************************** */
+
+@media screen and (max-width: 1400px) {
+    .myEmailVerified{
+        height: 200px;
+        
+    }
+
+    .abajo{
+        top: -30px;
+       
+        
+    
+    }
+    .arriba{
+        top: 28.9px;
+       
+    }
+
+    .miniLabel{
+        position: absolute;
+        top: 140px;
+       
+    }
+    .myInfo{
+        width: 85%;
+        height: 80%;
+        border-radius: 10px;
+     
+    }
+}
+
+/* **************************************************************************************************************** */
+
+.myGoogle{
+   position: relative ;
+   background-color: white;
+   border-radius: 50%;
+   width: 50px;
+   height: 50px;
+}
+
+.myGoogle-icon{
+ width: 30px;
+}
+
+.myGoogle-label{
+    color: #8a6137;
 }
 
 .myInputValidated{
@@ -344,7 +454,8 @@ input:focus{
   
     box-sizing: border-box;
     font-size: 16px;
-    padding-left: 15px;
+    padding-left: 10px;
+    font-weight: 700;
     text-align: start;
 }
 
