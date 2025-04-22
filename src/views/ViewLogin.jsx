@@ -1,5 +1,5 @@
 import '../styles/style_Login.css'
-import iconoLoginCurveado from '../assets/icono_curveado_login.png'
+import iconoLoginCurveado from '../assets/Icono_curveado_login.png'
 import { useEffect } from 'react';
 import full_logo_HUG from '../assets/FullLogo_HUG_with_letters.png'
 // import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
