@@ -38,7 +38,7 @@ function ViewLogin() {
         const id_token = response.credential; // Obtén el id_token
 
         // Aquí es donde enviarías el id_token a tu backend para validarlo
-        fetch('http://localhost:5000/login-with-google', {
+        fetch('http://127.0.0.1:5000/login-with-google', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -120,7 +120,7 @@ function ViewLogin() {
                                 <label>CORREO: </label>
                             </div>
                             <div className='myMini-sub'>
-                                <input type='text' className='myInput' placeholder='Ingresa tu correo...'></input>
+                                <input type='text' className='myInput' placeholder='Ingresa tu correo...' id='tbUserLogin'></input>
 
                             </div>
 
@@ -132,7 +132,7 @@ function ViewLogin() {
                                 <label>CONTRASEÑA: </label>
                             </div>
                             <div className='myMini-sub'>
-                                <input type='password' className='myInput' placeholder='Ingresa tu Contraseña...'></input>
+                                <input type='password' className='myInput' placeholder='Ingresa tu Contraseña...' id='tbPasswordLogin'></input>
                             </div>
                         </div>
 
@@ -150,7 +150,7 @@ function ViewLogin() {
                             </GoogleOAuthProvider>
                             </div>
                             <div className='myMini-sub'>
-                            <button className='myBtStartSession' type='button'>Iniciar</button>
+                            <button className='myBtStartSession' type='button' id='myBtStartLogin'>Iniciar</button>
                             </div>
                         </div>
                     </div>
@@ -185,7 +185,7 @@ function ViewLogin() {
                             <label>CONTRASEÑA: </label>
                             </div>
                             <div className='myMini-sub'>
-                            <input type='password' className='myInput' placeholder='Crea una contraseña...'></input>
+                            <input type='password' className='myInput' placeholder='Crea una contraseña...' id='myInputNewPassword'></input>
                             </div>
                         </div>
 

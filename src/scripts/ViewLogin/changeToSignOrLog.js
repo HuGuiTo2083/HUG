@@ -55,7 +55,7 @@ export function changeToSignOrLog() {
   //-----PARTE PARA AGREGARLE FUNCIONALIDAD AL INPUT DEL CODIGO DE VERIFICACION
 
   const myVerificationCodeInput = document.getElementById('myInputValidated')
-
+   
   myVerificationCodeInput.addEventListener('input', () => {
 
 
@@ -195,6 +195,24 @@ export function changeToSignOrLog() {
           console.log('BACK ' + myDefinitiveVerificationCode + ', input: ' + myVerificationCodeInput2.value)
           if (myDefinitiveVerificationCode === myVerificationCodeInput2.value) {
               console.log('codigo correcto')
+              //---aqui se inicia sesion
+              fetch('http://127.0.0.1:5000/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: document.getElementById('myInputNewEmail').value.trim(),
+                    password: document.getElementById('myInputNewPassword').value.trim()
+                })
+            })
+                .then(response => response.json())  // Si la respuesta es JSON, la convertimos a objeto
+                .then(data => {
+                    console.log('Registrado:', data);  // Procesamos la respuesta
+                })
+                .catch(error => {
+                    console.error('Error:', error);  // En caso de error, lo mostramos
+                });
           }
           else {
               console.log('else: ' + 'BACK ' + myDefinitiveVerificationCode + ', input: ' + myVerificationCodeInput2.value)
@@ -217,9 +235,44 @@ export function changeToSignOrLog() {
       myUpLogo.style.removeProperty('animation')
   }
 
+const  StartLogin = ()=>{
+  
+  fetch('http://127.0.0.1:5000/login', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+        email: document.getElementById('tbUserLogin').value.trim(),
+        password: document.getElementById('tbPasswordLogin').value.trim(),
+
+    })
+})
+    .then(response => response.json())  // Si la respuesta es JSON, la convertimos a objeto
+    .then(data => {
+        console.log('Success:', data);  // Procesamos la respuesta
+        myDefinitiveVerificationCode = data.data
+    })
+    .catch(error => {
+        console.error('Error:', error);  // En caso de error, lo mostramos
+    });
+
+
+
+}
+
+
+
+
+  const myBtLoginStart = document.getElementById('myBtStartLogin')
+
+  myBtLoginStart.addEventListener('click', StartLogin)
+
   return () => {
     btRegister.removeEventListener('click', handleRegister);
     btValidateCode.removeEventListener('click', handleValidate);
+    myBtLoginStart.removeEventListener('click', StartLogin)
+
   };
 
  
