@@ -82,146 +82,160 @@ function ViewLogin() {
         }
     };
 
-    return (
-        <div className='myBody'>
-            <div className='myContainerIcon curvedRight' id='myIconLog'>
+    const screenWidth = window.innerWidth; // Obtiene el ancho de la ventana
 
-                <div className='myMsgToSignUpOrLog MsgRight'>
-                    <img src={full_logo_HUG} className='myFullLogo'></img>
-                    ¿No tienes una cuenta?, has click abajo para crear una!
+    // Verifica si el ancho es menor o igual a 1024px (como en tu media query)
+  
 
-                    <button id='myBtSignUp' className='myBtSignOrLog'>Sign Up</button>
+        return (
+            <div className='myBody '>
+                <div className='fullScreen responsive'>
+                <div className='myContainerIcon curvedRight' id='myIconLog'>
+    
+    <div className='myMsgToSignUpOrLog MsgRight'>
+        <img src={full_logo_HUG} className='myFullLogo'></img>
+        ¿No tienes una cuenta?, has click abajo para crear una!
+
+        <button id='myBtSignUp' className='myBtSignOrLog'>Sign Up</button>
+    </div>
+    <img src={iconoLoginCurveado} className='myCurvedIcon right' >
+    </img>
+</div>
+
+<div className='myContainerIcon curvedLeft' id='myIconSign'>
+    <div className='myMsgToSignUpOrLog MsgLeft'>
+        <img src={full_logo_HUG} className='myFullLogo'></img>
+        ¿Tienes una cuenta?, has click abajo para iniciar sesión!
+
+        <button id='myBtLogin' className='myBtSignOrLog'>Log In</button>
+    </div>
+    <img src={iconoLoginCurveado} className='myCurvedIcon left' id='left' ></img>
+</div>
+
+<div className='myContainerLogSign' id='myInfoLog' >
+    <div className='myInfo'>
+        <div className='myInfo-item'>
+            INICIA SESIÓN
+        </div>
+        <div className='myInfo-item'>
+
+
+            {/* input de usuario o correo */}
+            <div className='myInfo-sub-item'>
+                <div className='myMini-sub'>
+                    <label>CORREO: </label>
                 </div>
-                <img src={iconoLoginCurveado} className='myCurvedIcon' >
-                </img>
+                <div className='myMini-sub'>
+                    <input type='text' className='myInput' placeholder='Ingresa tu correo...' id='tbUserLogin'></input>
+
+                </div>
+
             </div>
 
-            <div className='myContainerIcon curvedLeft' id='myIconSign'>
-                <div className='myMsgToSignUpOrLog MsgLeft'>
-                    <img src={full_logo_HUG} className='myFullLogo'></img>
-                    ¿Tienes una cuenta?, has click abajo para iniciar sesión!
-
-                    <button id='myBtLogin' className='myBtSignOrLog'>Log In</button>
+            {/* input de contraseña */}
+            <div className='myInfo-sub-item'>
+                <div className='myMini-sub'>
+                    <label>CONTRASEÑA: </label>
                 </div>
-                <img src={iconoLoginCurveado} className='myCurvedIcon left' id='left' ></img>
-            </div>
-
-            <div className='myContainerLogSign' id='myInfoLog' >
-                <div className='myInfo'>
-                    <div className='myInfo-item'>
-                        INICIA SESIÓN
-                    </div>
-                    <div className='myInfo-item'>
-
-
-                        {/* input de usuario o correo */}
-                        <div className='myInfo-sub-item'>
-                            <div className='myMini-sub'>
-                                <label>CORREO: </label>
-                            </div>
-                            <div className='myMini-sub'>
-                                <input type='text' className='myInput' placeholder='Ingresa tu correo...' id='tbUserLogin'></input>
-
-                            </div>
-
-                        </div>
-
-                        {/* input de contraseña */}
-                        <div className='myInfo-sub-item'>
-                            <div className='myMini-sub'>
-                                <label>CONTRASEÑA: </label>
-                            </div>
-                            <div className='myMini-sub'>
-                                <input type='password' className='myInput' placeholder='Ingresa tu Contraseña...' id='tbPasswordLogin'></input>
-                            </div>
-                        </div>
-
-                        {/* boton para iniciar sesion */}
-                        <div className='myInfo-sub-item'>
-                        <div className='myMini-sub'>
-                            <GoogleOAuthProvider clientId="689575216932-dltaibglvgc9r6gbeco0005sbsbuq4m7.apps.googleusercontent.com">
-                                <GoogleLogin
-                                    onSuccess={responseGoogle}
-                                    onError={() => console.log('Login Failed')}
-                                    shape='rectangular'
-                                    theme='outline'
-                                    size='large'
-                                />
-                            </GoogleOAuthProvider>
-                            </div>
-                            <div className='myMini-sub'>
-                            <button className='myBtStartSession' type='button' id='myBtStartLogin'>Iniciar</button>
-                            </div>
-                        </div>
-                    </div>
+                <div className='myMini-sub'>
+                    <input type='password' className='myInput' placeholder='Ingresa tu Contraseña...' id='tbPasswordLogin'></input>
                 </div>
             </div>
 
-            <div className='myContainerLogSign myInvisible' id='myInfoSign'>
-                <div className='myInfo'>
-                    {/* ----- */}
-
-
-                    <div className='myInfo-item'>
-                        REGÍSTRATE
-
-                    </div>
-
-                    <div className='myInfo-item'>
-
-                        {/* input de usuario o correo */}
-                        <div className='myInfo-sub-item'>
-                        <div className='myMini-sub'>
-                            <label>CORREO: </label>
-                            </div>
-                            <div className='myMini-sub'>
-                            <input type='text' className='myInput' placeholder='Ingresa tu correo...' id='myInputNewEmail'></input>
-                            </div>
-                        </div>
-
-                        {/* input de contraseña */}
-                        <div className='myInfo-sub-item'>
-                        <div className='myMini-sub'>
-                            <label>CONTRASEÑA: </label>
-                            </div>
-                            <div className='myMini-sub'>
-                            <input type='password' className='myInput' placeholder='Crea una contraseña...' id='myInputNewPassword'></input>
-                            </div>
-                        </div>
-
-                        {/* boton para iniciar sesion */}
-                        <div className='myInfo-sub-item registerContainer'>
-                        <div className='myMini-sub'>
-                            <button className='myBtStartSession btRegister' type='button' id='btRegister'>Registrarte</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className='myDNone' id='myFirstViewRegister'>
-                        <div className='myFirstViewRegister-item myDNone'>
-                            VALIDA TU CORREO:
-                        </div>
-                        <div className='myFirstViewRegister-item myDNone'>
-                            <div className='myEmailVerified'>
-                                <input type='text' className='myInputValidated toBottom' placeholder='XX - XXXX - XX' id='myInputValidated' maxLength={14}></input>
-                                <label className='miniLabel' id='myMiniLabelErrorCode'>Código Inválido, ingresalo de nuevo</label>
-                                <button className='myBtStartSession toBottom' id='btValidateCode'>Validar</button>
-                                <img src={logo_arriba} className='myMiniSpinner arriba' id='myUpLogo'></img>
-                                <img src={logo_abajo} className='myMiniSpinner abajo' id='myDownLogo'></img>
-                            </div>
-                        </div>
-                    </div>
-                    {/* ------ */}
+            {/* boton para iniciar sesion */}
+            <div className='myInfo-sub-item'>
+            <div className='myMini-sub'>
+                <GoogleOAuthProvider clientId="689575216932-dltaibglvgc9r6gbeco0005sbsbuq4m7.apps.googleusercontent.com">
+                    <GoogleLogin
+                        onSuccess={responseGoogle}
+                        onError={() => console.log('Login Failed')}
+                        shape='rectangular'
+                        theme='outline'
+                        size='large'
+                    />
+                </GoogleOAuthProvider>
+                </div>
+                <div className='myMini-sub'>
+                <button className='myBtStartSession' type='button' id='myBtStartLogin'>Iniciar</button>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+
+<div className='myContainerLogSign myInvisible' id='myInfoSign'>
+    <div className='myInfo'>
+        {/* ----- */}
 
 
-
-
-
+        <div className='myInfo-item'>
+            REGÍSTRATE
 
         </div>
-    );
+
+        <div className='myInfo-item'>
+
+            {/* input de usuario o correo */}
+            <div className='myInfo-sub-item'>
+            <div className='myMini-sub'>
+                <label>CORREO: </label>
+                </div>
+                <div className='myMini-sub'>
+                <input type='text' className='myInput' placeholder='Ingresa tu correo...' id='myInputNewEmail'></input>
+                </div>
+            </div>
+
+            {/* input de contraseña */}
+            <div className='myInfo-sub-item'>
+            <div className='myMini-sub'>
+                <label>CONTRASEÑA: </label>
+                </div>
+                <div className='myMini-sub'>
+                <input type='password' className='myInput' placeholder='Crea una contraseña...' id='myInputNewPassword'></input>
+                </div>
+            </div>
+
+            {/* boton para iniciar sesion */}
+            <div className='myInfo-sub-item registerContainer'>
+            <div className='myMini-sub'>
+                <button className='myBtStartSession btRegister' type='button' id='btRegister'>Registrarte</button>
+                </div>
+            </div>
+        </div>
+
+        <div className='myDNone' id='myFirstViewRegister'>
+            <div className='myFirstViewRegister-item myDNone'>
+                VALIDA TU CORREO:
+            </div>
+            <div className='myFirstViewRegister-item myDNone'>
+                <div className='myEmailVerified'>
+                    <input type='text' className='myInputValidated toBottom' placeholder='XX - XXXX - XX' id='myInputValidated' maxLength={14}></input>
+                    <label className='miniLabel' id='myMiniLabelErrorCode'>Código Inválido, ingresalo de nuevo</label>
+                    <button className='myBtStartSession toBottom' id='btValidateCode'>Validar</button>
+                    <img src={logo_arriba} className='myMiniSpinner arriba' id='myUpLogo'></img>
+                    <img src={logo_abajo} className='myMiniSpinner abajo' id='myDownLogo'></img>
+                </div>
+            </div>
+        </div>
+        {/* ------ */}
+    </div>
+</div>
+                    
+                </div>
+                
+                <div className='myBodyMovil'> </div>
+    
+    
+    
+    
+    
+    
+            </div>
+          
+        );     
+    
+
+   
 }
 
 export default ViewLogin;

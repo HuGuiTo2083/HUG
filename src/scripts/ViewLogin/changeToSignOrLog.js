@@ -8,29 +8,53 @@ export function changeToSignOrLog() {
   const myIconLog = document.getElementById('myIconLog')
   const myIconSign = document.getElementById('myIconSign')
   const imgLeft = document.getElementById('left')
+  const imgRight = document.getElementById('right')
 
   const myInfoLog = document.getElementById('myInfoLog')
   const myInfoSign = document.getElementById('myInfoSign')
 
 
-
+  
 
   //---para cuando se quiere registrar
   myBtSign.addEventListener('click', () => {
+    const screenWidth = window.innerWidth; // Obtiene el ancho de la ventana
 
-    myIconLog.style.transition = '0.2s'
-    myIconLog.style.left = '100%'
+    // Verifica si el ancho es menor o igual a 1024px (como en tu media query)
+    if (screenWidth <= 1024) {
+        //console.log('hola')
+        myIconLog.style.transition = '0.2s'
+        myIconLog.style.top = '100%'
+    
+        myIconSign.style.transition = '0.3s'
+        imgLeft.style.transform = 'rotate(270deg)'
+    
+        myInfoSign.style.visibility = 'visible'
+        myInfoLog.style.opacity = '0'
+        myInfoSign.style.opacity = '1'
+    
+        console.log(myInfoSign)
+    
+        myIconSign.style.left = '0'
+    }
+    else{
+        myIconLog.style.transition = '0.2s'
+        myIconLog.style.left = '100%'
+    
+        myIconSign.style.transition = '0.3s'
+        imgLeft.style.transform = 'rotateY(180deg)'
+    
+        myInfoSign.style.visibility = 'visible'
+        myInfoLog.style.opacity = '0'
+        myInfoSign.style.opacity = '1'
+    
+        console.log(myInfoSign)
+    
+        myIconSign.style.left = '0'
 
-    myIconSign.style.transition = '0.3s'
-    imgLeft.style.transform = 'rotateY(180deg)'
+    }
 
-    myInfoSign.style.visibility = 'visible'
-    myInfoLog.style.opacity = '0'
-    myInfoSign.style.opacity = '1'
-
-    console.log(myInfoSign)
-
-    myIconSign.style.left = '0'
+   
 
   })
 

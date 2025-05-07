@@ -27,6 +27,18 @@ body{
     overflow-x: hidden;
 }
 
+.fullScreen{
+    width: 100vw;
+    height: 100vh;
+    background-color: #F7D6B2;
+    display: flex;
+    align-items: center;
+    right: 0;
+    overflow-y: hidden;
+    overflow-x: hidden;
+
+}
+
 .myContainerIcon{
     width: 45%;
     height: 100%;
@@ -398,7 +410,7 @@ input:focus{
 
 /* **************************************media screen definitiva para pantalla de laptops huhm **************************************** */
 
-@media screen and (max-width: 1400px) {
+@media screen and (min-width: 1400px) {
     .myEmailVerified{
         height: 200px;
         
@@ -429,6 +441,39 @@ input:focus{
 }
 
 /* **************************************************************************************************************** */
+
+
+/* **************************************media screen definitiva para pantalla de tabletas y celulares huhm **************************************** */
+
+@media screen and (max-width: 1024px) {
+  .responsive{
+        display: none !important;
+  }
+  body{
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  html{
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+
+  .myBodyMovil{
+    width: 100vw;
+    height: 100vh;
+    background-color: #F7D6B2;
+    display: flex;
+    align-items: center;
+    right: 0;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+}
+
+/* **************************************************************************************************************************** */
+
 
 .myGoogle{
    position: relative ;
